@@ -3,7 +3,7 @@
 ## Installation
 
 ```
-$ git clone https://github.com/greyli/watchlist.git
+$ git clone https://github.com/15922/ReinDeer_web.git
 $ cd ReinDeer_web
 $ pipenv install --dev
 $ pipenv shell
