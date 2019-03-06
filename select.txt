@@ -1,0 +1,48 @@
+{
+    "pipeline_uid": "20190304",
+    "root_directory": "./sklearn_search_ranking_root_directory/",
+    "root_data_directory": "./sklearn_search_ranking_root_directory/data",
+    "pipeline_input_format": "file",
+    "pipeline_input_file_format": "csv",
+    "pipeline_input_feature_columns_name": "['f1','f2','f3','f4']",
+    "pipeline_input_label_columns_name": "['label']",
+    "pipeline_stages_config_dict": {
+        "pipeline_stages_config_dict": {
+            "stage1_config_dict": {
+                "stage_backend": "python1",
+                "stage_name": "PolynomialFeaturesTransformer",
+                "stage_param_dict": "stage_param_dict1",
+                "stage_param_dict1": {}
+            },
+            "stage2_config_dict": {
+                "stage_backend": "python2",
+                "stage_name": "PairwiseSampleTransformer",
+                "stage_param_dict": "stage_param_dict2",
+                "stage_param_dict2": {},
+                "stage_user_defined_feature_columns_name": [
+                    "stage1_PolynomialFeaturesTransformer"
+                ]
+            },
+            "stage3_config_dict": {
+                "stage_backend": "python3",
+                "stage_name": "MaxMinScalar",
+                "stage_param_dict": "stage_param_dict3",
+                "stage_param_dict3": {},
+                "stage_user_defined_feature_columns_name": [
+                    "stage2_PairwiseSampleTransformer"
+                ]
+            },
+            "stage4_config_dict": {
+                "stage_backend": "python4",
+                "stage_name": "SklearnPairwiseL2REstimator",
+                "stage_param_dict": "stage_param_dict4",
+                "stage_param_dict4": {},
+                "stage_user_defined_feature_columns_name": [
+                    "stage3_MaxMinScalar"
+                ]
+            }
+        }
+    },
+    "sampleID": "sampleID",
+    "groupID": "groupID"
+}

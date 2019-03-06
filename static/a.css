@@ -1,0 +1,17 @@
+input{
+    background-color: white;
+    width: 100%
+}
+.selection{
+    background-color:#cccccc;
+    margin: 5px;
+    padding: 6px;
+    position: relative
+}
+
+.remove{
+    
+    position: absolute;
+    top: 6px;
+    right: 5px;
+}

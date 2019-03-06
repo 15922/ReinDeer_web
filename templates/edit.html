@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+<!-- 输入信息页面 -->
+{% block content %}
+<h3>Edit item</h3>
+<form method="post">
+	<div class="form-group" style="width:80%;padding-top:15px">
+		<label for="name">Parameter name</label>
+		<input type="text" class="form-control" name="name" 
+			    value="{{ parameter.name }}">
+	</div>
+	<div class="form-group"  style="width:80%">
+		<label for="name">Parameter value</label>
+		<input type="text" class="form-control" name="value" 
+			   value="{{ parameter.value }}">
+	</div>
+	<div style="padding-bottom:15px; padding-left: 15px">
+        <input class="btn" type="submit" name="submit" value="Add">
+	</div>
+</form>
+{% endblock %}

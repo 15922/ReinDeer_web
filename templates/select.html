@@ -1,0 +1,168 @@
+
+{% extends 'layout.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+<meta charset="UTF-8">
+{% block body %}
+<br>
+<style>
+  p.small {line-height:40%;}
+  h1{
+    font-size:1rem; line-height: 1.7;
+  }
+</style>
+
+<form action="select" method="post">
+<!-- {{ form.csrf_token }} -->
+
+<div class="page-header">
+    <h1>{% if name %}{{ name }}{% else %}<font size="6">Time</font>{% endif %}</h1>
+</div>
+
+
+<div class="div1">
+<h1><font size="6">Stage 1</font>
+<div class="stage-list" style="background-color:#ffffff;width:100%;padding: 15px">
+  <div class="container">
+	<div class="row">
+	  <div class="col-3"">
+	    {{wtf.form_field(form.s1)}}
+	  </div>
+	  <div class="col-3">
+		{{wtf.form_field(form.s2)}}
+	  </div>
+	  <div class="col-3">
+		{{wtf.form_field(form.s3)}}	
+	  </div>
+	  <div class="col-3">
+		{{wtf.form_field(form.s4)}}		
+      </div>	
+	</div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+	  <div id='selection_list1'>
+	  </div>
+	</div>		
+  </div>
+
+</div>
+
+<h1><font size="6">Stage 2</font>
+<div class="stage-list" style="background-color:#ffffff;width:100%;padding: 15px">
+ 
+  <div style="width:95%">
+		<div style="padding-top:15px; padding-left: 15px">
+	    {{wtf.form_field(form.stage_user_defined_feature_columns_name2)}}
+		</div>
+  </div>
+
+  <div class="container">
+	<div class="row">
+	  <div class="col-3"">
+	    {{wtf.form_field(form.s5)}}
+	  </div>
+	  <div class="col-3">
+		{{wtf.form_field(form.s6)}}
+	  </div>
+	  <div class="col-3">
+		{{wtf.form_field(form.s7)}}	
+	  </div>
+	  <div class="col-3">
+		{{wtf.form_field(form.s8)}}		
+      </div>	
+	</div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+	  <div id='selection_list2'>
+	  </div>
+	</div>		
+  </div>
+
+</div>
+
+<h1><font size="6">Stage 3</font>
+<div class="stage-list" style="background-color:#ffffff;width:100%;padding: 15px">
+
+  <div style="width:95%">
+		<div style="padding-top:15px; padding-left: 15px">
+	    {{wtf.form_field(form.stage_user_defined_feature_columns_name3)}}
+		</div>
+  </div>
+
+  <div class="container">
+	<div class="row">
+	  <div class="col-3"">
+	    {{wtf.form_field(form.s9)}}
+	  </div>
+	  <div class="col-3">
+		{{wtf.form_field(form.s10)}}
+	  </div>
+	  <div class="col-3">
+		{{wtf.form_field(form.s11)}}	
+	  </div>
+	  <div class="col-3">
+		{{wtf.form_field(form.s12)}}		
+      </div>	
+	</div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+	  <div id='selection_list3'>
+	  </div>
+	</div>		
+  </div>
+
+</div>
+
+<h1><font size="6">Stage 4</font>
+<div class="stage-list" style="background-color:#ffffff;width:100%;padding: 15px">
+
+  <div style="width:95%">
+		<div style="padding-top:15px; padding-left: 15px">
+	    {{wtf.form_field(form.stage_user_defined_feature_columns_name4)}}
+		</div>
+  </div>
+
+  <div class="container">
+	<div class="row">
+	  <div class="col-3"">
+	    {{wtf.form_field(form.s13)}}
+	  </div>
+	  <div class="col-3">
+		{{wtf.form_field(form.s14)}}
+	  </div>
+	  <div class="col-3">
+		{{wtf.form_field(form.s15)}}	
+	  </div>
+	  <div class="col-3">
+		{{wtf.form_field(form.s16)}}		
+      </div>	
+	</div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+	  <div id='selection_list4'>
+	  </div>
+	</div>		
+  </div>
+
+</div>
+
+<br>
+
+	<div class="row" >
+		<div class="col-12" style="text-align: center;">	
+			<button class="btn btn-primary" style="float:left">Submit</button>
+		</div>
+	</div>
+
+</form>
+
+<br>
+{% endblock %}
