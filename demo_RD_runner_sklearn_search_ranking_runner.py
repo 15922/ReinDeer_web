@@ -1,8 +1,7 @@
 import pickle
 import winreg
-import json
 #import os
-
+from ReinDeer.RD_pipeline import RDPipeline
 
 def pipeline_config_dict(): 
     key = winreg.OpenKey(winreg.HKEY_CURRENT_USER,r'Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders')#利用系统的链表
@@ -12,9 +11,20 @@ def pipeline_config_dict():
         #os.remove(Desktop_path)
     return pipeline_config_dict
 
+def pipeline_API_demo():
+    print('pipeline ini')
+    pipeline = RDPipeline(pipeline_config_dict())
+    print('pipeline run')
+    pipeline.run()
 
-js = json.dumps(pipeline_config_dict(), indent=4)
-print(pipeline_config_dict())
-
-
+if __name__ == '__main__':
+    print("pipeline API demo")
+    print('train phase')
+    pipeline_config_dict['pipeline_input_file_name'] = 'data_train'
+    pipeline_config_dict['pipeline_phase_config'] = 'train'
+    pipeline_API_demo()
+    print('eval phase')
+    pipeline_config_dict['pipeline_input_file_name'] = 'data_eval'
+    pipeline_config_dict['pipeline_phase_config'] = 'eval'
+    pipeline_API_demo()
 
