@@ -54,9 +54,9 @@ app = Flask(__name__)
 #Flask 提供了一个统一的接口来写入和获取这些配置变量：Flask.config 字典
 #配置变量的名称必须使用大写，写入配置的语句一般会放到扩展类实例化语句之前
 #app.root_path 返回程序实例所在模块的路径
-app.config['SQLALCHEMY_DATABASE_URI'] = prefix + os.path.join(app.root_path, 'data.db')
+app.config['SQLALCHEMY_DATABASE_URI'] = prefix + os.path.join(os.path.dirname(app.root_path), os.getenv('DATABASE_FILE', 'data.db'))
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # 关闭对模型修改的监控
-app.config['SECRET_KEY'] = 'dev'  # 等同于 app.secret_key = 'dev'
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'dev')  # 等同于 app.secret_key = 'dev'
 app.config['JSON_AS_ASCII'] = False
 
 
@@ -449,8 +449,6 @@ def select():
     pickle.dump(result_dict,open(Desktop_path,'wb'))
 
     return render_template('select.html', form=form)
-
-
 
 
 
